@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/userLayout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="home">
+        <div class="container">
+            <h4 class="text-center">Receipe</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Product Price</th>
+                        <th>Product Quantity</th>
+                        <th>Balance Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="pro :${products}">
+                        <td th:text="${pro.name}"></td>
+                        <td th:text="${pro.price + ' $ '}"></td>
+                        <td th:text="${pro.buyQuantity}"></td>
+                        <td th:text="${pro.balancePrice}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row my-3">
+                <div class="col-sm-9"></div>
+                <div class="col-sm-3"> Sum = <span th:text="${sum}"></span></div>
+            </div>
+        </div>
+
+
+
+    </div>
+</body>
+</html>
